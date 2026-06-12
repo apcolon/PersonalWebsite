@@ -5,8 +5,8 @@ export const metadata = { title: "Projects | Antonio Colon" };
 
 const skillGroups = [
   {
-    title: "Languages",
-    skills: ["Python", "C++", "C", "TypeScript", "JavaScript", "SQL", "HTML/CSS"],
+    title: "Languages & Developer Tools",
+    skills: ["Python", "C++", "C", "TypeScript", "JavaScript", "SQL", "HTML/CSS", "Git"],
   },
   {
     title: "Web Development",
@@ -18,11 +18,11 @@ const skillGroups = [
   },
   {
     title: "Data & Infrastructure",
-    skills: ["PostgreSQL", "SQLite", "Docker", "MapReduce", "Inverted indexes", "TF-IDF", "PageRank", "Data modeling"],
+    skills: ["AWS", "Oracle Cloud", "Docker", "PostgreSQL", "SQLite", "MapReduce", "Inverted indexes", "TF-IDF", "PageRank", "Data modeling"],
   },
   {
     title: "Security & Networking",
-    skills: ["TCP", "UDP", "Wireshark", "Network sockets", "Authentication", "Fault tolerance"],
+    skills: ["TCP", "UDP", "Wireshark", "Network sockets", "Authentication", "SQL injection", "Cross-site scripting (XSS)", "Buffer overflow attacks", "Fault tolerance"],
   },
   {
     title: "Systems & Algorithms",
