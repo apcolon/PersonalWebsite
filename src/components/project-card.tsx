@@ -5,7 +5,14 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
       <div className="project-card-top">
-        <p className="eyebrow">{project.role}</p>
+        <div className="project-card-label">
+          <p className="eyebrow">{project.role}</p>
+          {project.standout && (
+            <span className="standout-star" title="A standout project I especially enjoyed" aria-label="Standout project">
+              ★
+            </span>
+          )}
+        </div>
         <Link
           className="project-arrow"
           href={`/projects/${project.slug}`}
@@ -32,4 +39,3 @@ export function ProjectCard({ project }: { project: Project }) {
     </article>
   );
 }
-

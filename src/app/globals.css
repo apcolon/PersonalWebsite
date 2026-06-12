@@ -84,6 +84,8 @@ main { min-height: calc(100vh - 170px); }
 .project-card { min-height: 390px; display: flex; flex-direction: column; border: 1px solid var(--line); background: var(--surface); padding: clamp(25px, 4vw, 42px); transition: transform 180ms ease, box-shadow 180ms ease; }
 .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(34, 45, 39, 0.08); }
 .project-card-top { display: flex; justify-content: space-between; }
+.project-card-label, .project-title-label { display: flex; align-items: center; gap: 10px; }
+.standout-star { color: #e8b928; font-size: 1.15rem; line-height: 1; filter: drop-shadow(0 1px 0 rgba(98, 70, 0, .18)); }
 .project-arrow { color: var(--accent); font-size: 1.4rem; line-height: 1; transition: transform 160ms ease; }
 .project-arrow:hover { transform: translate(3px, -3px); }
 .project-card h3 { margin: 50px 0 15px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.05em; }
@@ -125,7 +127,10 @@ code { font-family: var(--font-geist-mono), monospace; font-size: .9em; }
 .project-hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(35px, 8vw, 100px); align-items: end; padding-bottom: 70px; }
 .project-hero h1 { margin: 16px 0 0; font-size: clamp(4rem, 10vw, 8rem); line-height: .9; letter-spacing: -.075em; }
 .project-hero > p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.7; }
-.project-media { margin-bottom: 85px; border: 1px solid var(--line); background: #101512; padding: clamp(5px, 1vw, 10px); }
+.project-demo { margin-bottom: 85px; }
+.project-demo-heading { margin-bottom: 26px; }
+.project-demo-heading h2 { margin: 10px 0 0; font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.05em; }
+.project-media { border: 1px solid var(--line); background: #101512; padding: clamp(5px, 1vw, 10px); }
 .project-media video { display: block; width: 100%; height: auto; }
 .project-detail-grid { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(50px, 10vw, 130px); padding-top: 75px; border-top: 1px solid var(--line); }
 .project-overview h2 { margin: 12px 0 22px; font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.055em; }
@@ -157,7 +162,7 @@ code { font-family: var(--font-geist-mono), monospace; font-size: .9em; }
   .page-intro { margin-bottom: 45px; }
   .portrait-frame { max-width: 420px; }
   .project-hero { padding-bottom: 50px; }
-  .project-media { margin-bottom: 60px; }
+  .project-demo { margin-bottom: 60px; }
   .resume-viewer { height: 72vh; }
   .facts-grid { grid-template-columns: 1fr; }
   .facts-grid div:nth-child(odd) { margin-right: 0; }

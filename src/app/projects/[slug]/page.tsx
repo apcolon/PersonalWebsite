@@ -27,18 +27,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Link className="back-link" href="/projects">← All projects</Link>
       <header className="project-hero">
         <div>
-          <p className="eyebrow">{project.role} · {project.date}</p>
+          <div className="project-title-label">
+            <p className="eyebrow">{project.role} · {project.date}</p>
+            {project.standout && (
+              <span className="standout-star" title="A standout project I especially enjoyed" aria-label="Standout project">
+                ★
+              </span>
+            )}
+          </div>
           <h1>{project.title}</h1>
         </div>
         <p>{project.description}</p>
       </header>
 
       {project.videoUrl && (
-        <section className="project-media" aria-label={`${project.title} demo`}>
-          <video controls playsInline preload="metadata" poster={project.videoPoster}>
-            <source src={project.videoUrl} type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
+        <section className="project-demo" aria-label={`${project.title} demo`}>
+          <div className="project-demo-heading">
+            <p className="eyebrow">Product walkthrough</p>
+            <h2>Check out a demo below.</h2>
+          </div>
+          <div className="project-media">
+            <video controls playsInline preload="metadata" poster={project.videoPoster}>
+              <source src={project.videoUrl} type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          </div>
         </section>
       )}
 
@@ -69,4 +82,3 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     </article>
   );
 }
-

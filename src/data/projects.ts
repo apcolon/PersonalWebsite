@@ -12,6 +12,7 @@ export type Project = {
   videoUrl?: string;
   videoPoster?: string;
   featured?: boolean;
+  standout?: boolean;
 };
 
 export const projects: Project[] = [
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     liveUrl: "https://trycartwise.com/home/",
     liveCta: "Check the live product out!",
     featured: true,
+    standout: true,
   },
   {
     slug: "modus-ai",
@@ -53,6 +55,7 @@ export const projects: Project[] = [
     videoUrl: "/videos/modus-ai-demo.mp4",
     videoPoster: "/images/modus-ai-poster.jpg",
     featured: true,
+    standout: true,
   },
   {
     slug: "nomad",
@@ -69,6 +72,7 @@ export const projects: Project[] = [
       "Developed against a Django backend backed by PostgreSQL",
     ],
     technologies: ["React Native", "Django", "PostgreSQL", "Authentication"],
+    standout: true,
   },
   {
     slug: "pacos-puppy-problem",
@@ -85,6 +89,7 @@ export const projects: Project[] = [
       "Evaluated and tuned model performance using AUROC",
     ],
     technologies: ["Python", "PyTorch", "CNNs", "Vision Transformers"],
+    standout: true,
   },
 ];
 
