@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const metadata = { title: "About | Antonio Colon" };
 
 export default function AboutPage() {
@@ -8,14 +10,22 @@ export default function AboutPage() {
         <h1>Engineer, builder, lifelong learner.</h1>
       </div>
       <div className="about-layout">
-        <div className="portrait-placeholder" aria-label="Portrait placeholder">
-          <span>Photo coming soon</span>
+        <div className="portrait-frame">
+          <Image
+            src="/images/antonio-graduation.jpg"
+            alt="Antonio Colon in University of Michigan graduation regalia"
+            width={1200}
+            height={1800}
+            sizes="(max-width: 700px) 100vw, 40vw"
+            priority
+          />
         </div>
         <div className="prose">
           <h2>Hey, I&apos;m Antonio.</h2>
           <p>
             I&apos;m a Miami native and University of Michigan computer science
-            graduate who enjoys turning ideas into products people can use.
+            graduate with a minor in mathematics who enjoys turning ideas into
+            products people can use.
             I&apos;m especially interested in full-stack engineering, AI tools,
             and building clean experiences around complicated technology.
           </p>
@@ -40,4 +50,3 @@ export default function AboutPage() {
     </section>
   );
 }
-

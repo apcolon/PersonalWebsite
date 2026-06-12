@@ -13,13 +13,13 @@ export default function ContactPage() {
       </div>
       <div className="contact-card">
         <p className="eyebrow">Say hello</p>
-        <a className="contact-email" href="mailto:your-email@example.com">
-          your-email@example.com
+        <a className="contact-email" href="mailto:apcolon@umich.edu">
+          apcolon@umich.edu
         </a>
-        <p>Replace this placeholder with your preferred email address.</p>
+        <p>I&apos;d be glad to hear what you&apos;re working on.</p>
         <div className="social-links">
-          <a href="https://github.com/your-username" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/apcolon" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/apcolon/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
       </div>
     </section>

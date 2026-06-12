@@ -1,5 +1,7 @@
 export const metadata = { title: "Resume | Antonio Colon" };
 
+const resumeUrl = "/documents/antonio-colon-resume.pdf";
+
 export default function ResumePage() {
   return (
     <section className="page shell">
@@ -7,23 +9,18 @@ export default function ResumePage() {
         <div>
           <p className="eyebrow">Resume</p>
           <h1>Experience at a glance.</h1>
-          <p>
-            Add your resume as <code>public/antonio-colon-resume.pdf</code> to
-            enable the links below.
-          </p>
+          <p>Computer science, product engineering, applied AI, and cybersecurity.</p>
         </div>
-        <a className="button button-primary" href="/antonio-colon-resume.pdf" download>
+        <a className="button button-primary" href={resumeUrl} download>
           Download PDF
         </a>
       </div>
-      <div className="resume-placeholder">
-        <p className="eyebrow">PDF preview</p>
-        <h2>Your resume will appear here.</h2>
-        <p>
-          Once the file is added, replace this panel with an embedded PDF or
-          keep the clean download-only experience.
-        </p>
+      <div className="resume-viewer">
+        <iframe src={`${resumeUrl}#view=FitH`} title="Antonio Colon resume" />
       </div>
+      <p className="resume-fallback">
+        Having trouble with the preview? <a href={resumeUrl}>Open the resume in a new tab.</a>
+      </p>
     </section>
   );
 }

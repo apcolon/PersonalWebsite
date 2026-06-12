@@ -1,11 +1,18 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
       <div className="project-card-top">
-        <p className="eyebrow">Featured project</p>
-        <span aria-hidden="true">↗</span>
+        <p className="eyebrow">{project.role}</p>
+        <Link
+          className="project-arrow"
+          href={`/projects/${project.slug}`}
+          aria-label={`Open ${project.title} case study`}
+        >
+          ↗
+        </Link>
       </div>
       <h3>{project.title}</h3>
       <p>{project.description}</p>
@@ -15,14 +22,10 @@ export function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
       <div className="card-links">
-        {project.githubUrl && (
-          <a href={project.githubUrl} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-        )}
+        <Link href={`/projects/${project.slug}`}>View project</Link>
         {project.liveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noreferrer">
-            Live site
+            {project.liveCta ?? "Live site"} ↗
           </a>
         )}
       </div>
