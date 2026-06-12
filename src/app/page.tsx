@@ -9,14 +9,20 @@ export default function Home() {
   return (
     <>
       <section className="hero shell">
-        <p className="eyebrow">Software engineer · Miami, Florida</p>
+        <p className="eyebrow">Computer science · Finance · Machine learning</p>
         <h1>
-          I build thoughtful software for <em>real problems.</em>
+          I build at the intersection of <em>technology and finance.</em>
         </h1>
         <p className="hero-copy">
-          I&apos;m Antonio, a computer science graduate interested in full-stack
-          products, practical AI, and the details that make technology useful.
+          I&apos;m Antonio, a computer science graduate drawn to software that
+          helps people understand information, make decisions, and solve
+          practical problems. Recently, I&apos;ve been especially interested in
+          machine learning and learning where it can be genuinely useful.
         </p>
+        <blockquote className="hero-principle">
+          <span>A principle I build by</span>
+          “Useful technology starts with understanding the problem.”
+        </blockquote>
         <div className="button-row">
           <Link className="button button-primary" href="/projects">
             Explore my work
@@ -56,11 +62,12 @@ export default function Home() {
         </div>
         <div>
           <p className="eyebrow">A little more</p>
-          <h2>Curious by default. Always building.</h2>
+          <h2>Curious about systems, markets, and people.</h2>
           <p>
-            My work sits at the intersection of solid engineering and useful
-            product thinking. I care about why something should exist as much as
-            how it gets built.
+            I enjoy learning how technical systems work and how they connect
+            to the decisions people and businesses make. That curiosity has
+            taken me from full-stack products to distributed systems and,
+            more recently, machine learning.
           </p>
           <Link className="text-link" href="/about">More about me →</Link>
         </div>
