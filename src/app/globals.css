@@ -95,6 +95,12 @@ main { min-height: calc(100vh - 170px); }
 .card-links { display: flex; gap: 20px; font-size: 0.86rem; font-weight: 700; }
 .card-links a:hover, .social-links a:hover { color: var(--accent); }
 
+.skills-section { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(40px, 8vw, 100px); margin-top: 100px; padding-top: 85px; border-top: 1px solid var(--line); }
+.skills-heading h2 { margin: 10px 0 18px; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -.06em; }
+.skills-heading > p:last-child { max-width: 420px; color: var(--muted); line-height: 1.7; }
+.skills-list { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.skills-list li { border: 1px solid var(--line); border-radius: 100px; background: var(--surface); padding: 11px 16px; color: var(--ink); font-family: var(--font-geist-mono), monospace; font-size: .78rem; }
+
 .callout { max-width: 1120px; }
 .callout p:not(.eyebrow) { max-width: 700px; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
 .callout .text-link { display: inline-block; margin-top: 16px; }
@@ -156,10 +162,11 @@ code { font-family: var(--font-geist-mono), monospace; font-size: .9em; }
   .nav-list { justify-content: space-between; gap: 6px; }
   .nav-list a { font-size: .75rem; }
   .hero h1 { font-size: clamp(3rem, 17vw, 5rem); }
-  .project-grid, .about-layout, .contact-layout, .home-about, .project-hero, .project-detail-grid { grid-template-columns: 1fr; }
+  .project-grid, .about-layout, .contact-layout, .home-about, .project-hero, .project-detail-grid, .skills-section { grid-template-columns: 1fr; }
   .section-heading, .resume-intro { align-items: flex-start; flex-direction: column; }
   .project-card { min-height: 360px; }
   .page-intro { margin-bottom: 45px; }
+  .skills-section { margin-top: 70px; padding-top: 60px; }
   .portrait-frame { max-width: 420px; }
   .project-hero { padding-bottom: 50px; }
   .project-demo { margin-bottom: 60px; }
