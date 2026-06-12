@@ -125,6 +125,7 @@ main { min-height: calc(100vh - 170px); }
 .facts-grid span { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
 .about-section { display: grid; grid-template-columns: .65fr 1.35fr; gap: clamp(40px, 8vw, 100px); margin-top: 100px; padding-top: 85px; border-top: 1px solid var(--line); }
 .about-section > div:first-child h2 { max-width: 430px; margin: 10px 0 0; font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.055em; }
+.reading-section > div:first-child h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05; }
 .community-list { margin: 30px 0 0; padding: 0; list-style: none; }
 .community-list li { position: relative; border-bottom: 1px solid var(--line); padding: 18px 0 18px 28px; color: var(--muted); line-height: 1.6; }
 .community-list li::before { position: absolute; left: 0; color: var(--accent); content: "↗"; }
