@@ -98,6 +98,10 @@ main { min-height: calc(100vh - 170px); }
 .skills-section { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(40px, 8vw, 100px); margin-top: 100px; padding-top: 85px; border-top: 1px solid var(--line); }
 .skills-heading h2 { margin: 10px 0 18px; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -.06em; }
 .skills-heading > p:last-child { max-width: 420px; color: var(--muted); line-height: 1.7; }
+.skills-groups { display: grid; gap: 30px; }
+.skill-group { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.skill-group:last-child { border-bottom: 0; }
+.skill-group h3 { margin: 0 0 14px; color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: .75rem; letter-spacing: .11em; text-transform: uppercase; }
 .skills-list { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .skills-list li { border: 1px solid var(--line); border-radius: 100px; background: var(--surface); padding: 11px 16px; color: var(--ink); font-family: var(--font-geist-mono), monospace; font-size: .78rem; }
 

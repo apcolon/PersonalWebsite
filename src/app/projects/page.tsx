@@ -3,11 +3,34 @@ import { projects } from "@/data/projects";
 
 export const metadata = { title: "Projects | Antonio Colon" };
 
-export default function ProjectsPage() {
-  const skills = Array.from(
-    new Set(projects.flatMap((project) => project.technologies)),
-  ).sort((a, b) => a.localeCompare(b));
+const skillGroups = [
+  {
+    title: "Languages",
+    skills: ["Python", "C++", "C", "TypeScript", "JavaScript", "SQL", "HTML/CSS"],
+  },
+  {
+    title: "Web Development",
+    skills: ["React", "React Native", "Next.js", "Flask", "Django", "Jinja", "REST APIs", "Authentication"],
+  },
+  {
+    title: "AI & Machine Learning",
+    skills: ["PyTorch", "LLMs", "RAG", "CNNs", "Vision Transformers", "Transfer learning", "Retrieval systems"],
+  },
+  {
+    title: "Data & Infrastructure",
+    skills: ["PostgreSQL", "SQLite", "Docker", "MapReduce", "Inverted indexes", "TF-IDF", "PageRank", "Data modeling"],
+  },
+  {
+    title: "Security & Networking",
+    skills: ["TCP", "UDP", "Wireshark", "Network sockets", "Authentication", "Fault tolerance"],
+  },
+  {
+    title: "Systems & Algorithms",
+    skills: ["Distributed systems", "Threads", "Computer architecture", "Caching", "LRU", "Hash tables", "Binary search trees", "Priority queues", "BFS", "DFS", "Graph traversal", "Query processing"],
+  },
+];
 
+export default function ProjectsPage() {
   return (
     <section className="page shell">
       <div className="page-intro">
@@ -33,11 +56,18 @@ export default function ProjectsPage() {
             while building these projects.
           </p>
         </div>
-        <ul className="skills-list">
-          {skills.map((skill) => (
-            <li key={skill}>{skill}</li>
+        <div className="skills-groups">
+          {skillGroups.map((group) => (
+            <section className="skill-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul className="skills-list">
+                {group.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
       </section>
     </section>
   );
