@@ -39,6 +39,11 @@ export default function AboutPage() {
             runs, and reading. I like having interests that pull me away from a
             screen and give me something different to work toward.
           </p>
+          <p>
+            One of my favorite challenges was completing the Camino de
+            Santiago, walking 150 miles in 10 days from Porto, Portugal, to
+            Santiago de Compostela, Spain.
+          </p>
           <div className="facts-grid">
             <div><span>Based in</span><strong>Miami, FL</strong></div>
             <div><span>Born in</span><strong>Puerto Rico</strong></div>
@@ -71,7 +76,7 @@ export default function AboutPage() {
       <section className="about-section reading-section">
         <div>
           <p className="eyebrow">Off the clock</p>
-          <h2>A few books I&apos;ve enjoyed</h2>
+          <h2>A few books I&apos;ve enjoyed and recommend</h2>
         </div>
         <div className="book-grid">
           <article>

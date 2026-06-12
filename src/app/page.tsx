@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <section className="hero shell">
-        <p className="eyebrow">Computer science · Finance · Machine learning</p>
+        <p className="eyebrow">Computer science · Math · Finance · Machine learning</p>
         <h1>
           I build at the intersection of <em>technology and finance.</em>
         </h1>
