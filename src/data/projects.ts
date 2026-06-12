@@ -40,10 +40,11 @@ export const projects: Project[] = [
     role: "Builder",
     date: "February 2026",
     description:
-      "A grounded, LLM-based tutoring system that gives university students citation-backed answers from their own course materials.",
+      "A Top 5 hackathon project, selected from more than 75 teams, that gives university students citation-backed answers from their own course materials.",
     overview:
       "Modus AI ingests lecture transcripts and course resources to answer questions with citations and timestamp links. Retrieval and filtering reduce hallucinations, while separate chat and search experiences support different learning goals.",
     highlights: [
+      "Placed Top 5 in a hackathon with more than 75 competing teams",
       "Delivers citation-backed answers with timestamp linking",
       "Uses retrieval and filtering to reduce unsupported responses",
       "Explores chat and search interaction models through user experiments",
@@ -90,4 +91,3 @@ export const projects: Project[] = [
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
-
