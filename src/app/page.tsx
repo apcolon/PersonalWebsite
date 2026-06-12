@@ -20,8 +20,8 @@ export default function Home() {
           machine learning and learning where it can be genuinely useful.
         </p>
         <blockquote className="hero-principle">
-          <span>A principle I build by</span>
-          “Useful technology starts with understanding the problem.”
+          “It&apos;s a leap of faith.”
+          <cite>Spider-Man: Into the Spider-Verse</cite>
         </blockquote>
         <div className="button-row">
           <Link className="button button-primary" href="/projects">
