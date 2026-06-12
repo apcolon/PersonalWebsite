@@ -27,14 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Link className="back-link" href="/projects">← All projects</Link>
       <header className="project-hero">
         <div>
-          <div className="project-title-label">
-            <p className="eyebrow">{project.role} · {project.date}</p>
-            {project.standout && (
-              <span className="standout-star" title="A standout project I especially enjoyed" aria-label="Standout project">
-                ★
-              </span>
-            )}
-          </div>
+          <p className="eyebrow">{project.role} · {project.date}</p>
           <h1>{project.title}</h1>
         </div>
         <p>{project.description}</p>

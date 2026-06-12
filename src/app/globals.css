@@ -84,8 +84,6 @@ main { min-height: calc(100vh - 170px); }
 .project-card { min-height: 390px; display: flex; flex-direction: column; border: 1px solid var(--line); background: var(--surface); padding: clamp(25px, 4vw, 42px); transition: transform 180ms ease, box-shadow 180ms ease; }
 .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(34, 45, 39, 0.08); }
 .project-card-top { display: flex; justify-content: space-between; }
-.project-card-label, .project-title-label { display: flex; align-items: center; gap: 10px; }
-.standout-star { color: #e8b928; font-size: 1.15rem; line-height: 1; filter: drop-shadow(0 1px 0 rgba(98, 70, 0, .18)); }
 .project-arrow { color: var(--accent); font-size: 1.4rem; line-height: 1; transition: transform 160ms ease; }
 .project-arrow:hover { transform: translate(3px, -3px); }
 .project-card h3 { margin: 50px 0 15px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.05em; }
