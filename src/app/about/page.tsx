@@ -7,7 +7,7 @@ export default function AboutPage() {
     <section className="page shell">
       <div className="page-intro">
         <p className="eyebrow">About me</p>
-        <h1>Puerto Rico roots. Miami home. Always curious.</h1>
+        <h1>Puerto Rico roots. Miami home. Learning as I go.</h1>
       </div>
       <div className="about-layout">
         <div className="portrait-frame">
