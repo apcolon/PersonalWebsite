@@ -11,7 +11,7 @@ export default function Home() {
       <section className="hero shell">
         <p className="eyebrow">Computer science · Math · Finance · Machine learning</p>
         <h1>
-          I build at the intersection of <em>technology and finance.</em>
+          I build to explore what technology can <em>make possible.</em>
         </h1>
         <p className="hero-copy">
           I&apos;m Antonio, a computer science graduate drawn to software that
