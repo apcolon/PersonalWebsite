@@ -5,7 +5,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
       <div className="project-card-top">
-        <p className="eyebrow">{project.role}</p>
+        <p className="eyebrow">{project.role ?? project.category}</p>
         <Link
           className="project-arrow"
           href={`/projects/${project.slug}`}

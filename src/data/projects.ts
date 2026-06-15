@@ -1,7 +1,8 @@
 export type Project = {
   slug: string;
   title: string;
-  role: string;
+  role?: string;
+  category: string;
   date: string;
   description: string;
   overview: string;
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     slug: "cartwise",
     title: "CartWise",
     role: "Founder",
+    category: "Full Stack",
     date: "January 2026 - Present",
     description:
       "A full-stack system that transforms recipes into one-click shopping carts by mapping structured ingredients to retailer products.",
@@ -38,6 +40,7 @@ export const projects: Project[] = [
     slug: "modus-ai",
     title: "Modus AI",
     role: "Builder",
+    category: "AI / Machine Learning",
     date: "February 2026",
     description:
       "A Top 5 hackathon project, selected from more than 75 teams, that gives university students citation-backed answers from their own course materials.",
@@ -58,6 +61,7 @@ export const projects: Project[] = [
     slug: "nomad",
     title: "NOMAD",
     role: "Co-Founder",
+    category: "Mobile App",
     date: "June 2025 - Present",
     description:
       "A social travel app focused on making travel discovery and planning simpler and more collaborative.",
@@ -73,7 +77,7 @@ export const projects: Project[] = [
   {
     slug: "pacos-puppy-problem",
     title: "Paco's Puppy Problem",
-    role: "Machine Learning Engineer",
+    category: "Machine Learning",
     date: "April 2026",
     description:
       "An image-classification study comparing CNNs, transfer learning, and a Vision Transformer across roughly 8,800 images.",
@@ -89,7 +93,7 @@ export const projects: Project[] = [
   {
     slug: "insta485",
     title: "Insta485",
-    role: "Full-Stack Engineer",
+    category: "Full Stack",
     date: "University of Michigan Course Project",
     description:
       "An Instagram-style social platform built from static pages into a server-rendered application and finally an interactive React experience.",
@@ -106,7 +110,7 @@ export const projects: Project[] = [
   {
     slug: "distributed-mapreduce",
     title: "Distributed MapReduce",
-    role: "Distributed Systems Engineer",
+    category: "Distributed Systems",
     date: "University of Michigan Course Project",
     description:
       "A fault-tolerant MapReduce framework that coordinates parallel map and reduce jobs across networked worker processes.",
@@ -123,7 +127,7 @@ export const projects: Project[] = [
   {
     slug: "scalable-search-engine",
     title: "Scalable Search Engine",
-    role: "Search Systems Engineer",
+    category: "Search Systems",
     date: "University of Michigan Course Project",
     description:
       "A multi-service search engine with a MapReduce indexing pipeline, segmented inverted indexes, and relevance-ranked results.",
@@ -140,7 +144,7 @@ export const projects: Project[] = [
   {
     slug: "lc2k-cache-simulator",
     title: "LC-2K Cache Simulator",
-    role: "Computer Architecture Engineer",
+    category: "Computer Architecture",
     date: "University of Michigan Course Project",
     description:
       "A configurable set-associative cache integrated with an LC-2K processor simulator to model real memory behavior.",
@@ -157,7 +161,7 @@ export const projects: Project[] = [
   {
     slug: "sillyql-database-engine",
     title: "SillyQL Database Engine",
-    role: "Systems Programmer",
+    category: "Database Systems",
     date: "University of Michigan Course Project",
     description:
       "An in-memory relational database engine with typed tables, conditional queries, indexing, deletion, and joins.",
@@ -174,7 +178,7 @@ export const projects: Project[] = [
   {
     slug: "mine-escape",
     title: "Mine Escape",
-    role: "Algorithms Engineer",
+    category: "Algorithms",
     date: "University of Michigan Course Project",
     description:
       "A priority-driven pathfinding simulation that clears the least difficult route out of a mine while handling TNT chain reactions.",
@@ -191,7 +195,7 @@ export const projects: Project[] = [
   {
     slug: "letterman-word-morph",
     title: "Letterman Word Morph",
-    role: "Algorithms Engineer",
+    category: "Algorithms",
     date: "University of Michigan Course Project",
     description:
       "A configurable word-transformation solver that finds paths between dictionary words using breadth-first or depth-first search.",

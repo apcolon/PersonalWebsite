@@ -27,7 +27,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Link className="back-link" href="/projects">← All projects</Link>
       <header className="project-hero">
         <div>
-          <p className="eyebrow">{project.role} · {project.date}</p>
+          <p className="eyebrow">
+            {project.role ?? project.category} · {project.date}
+          </p>
           <h1>{project.title}</h1>
         </div>
         <p>{project.description}</p>
