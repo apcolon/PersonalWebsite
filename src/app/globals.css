@@ -126,6 +126,11 @@ main { min-height: calc(100vh - 170px); }
 .about-section { display: grid; grid-template-columns: .65fr 1.35fr; gap: clamp(40px, 8vw, 100px); margin-top: 100px; padding-top: 85px; border-top: 1px solid var(--line); }
 .about-section > div:first-child h2 { max-width: 430px; margin: 10px 0 0; font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.055em; }
 .reading-section > div:first-child h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05; }
+.experience-list { display: grid; gap: 18px; margin-top: 34px; }
+.experience-list article { border-top: 1px solid var(--line); padding-top: 24px; }
+.experience-list h3 { margin: 6px 0 10px; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.04em; }
+.experience-list article > p:last-child { margin-bottom: 0; }
+.experience-meta { margin: 0; color: var(--accent); font-family: var(--font-geist-mono), monospace; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .community-list { margin: 30px 0 0; padding: 0; list-style: none; }
 .community-list li { position: relative; border-bottom: 1px solid var(--line); padding: 18px 0 18px 28px; color: var(--muted); line-height: 1.6; }
 .community-list li::before { position: absolute; left: 0; color: var(--accent); content: "↗"; }

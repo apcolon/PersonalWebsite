@@ -53,6 +53,40 @@ export default function AboutPage() {
         </div>
       </div>
 
+      <section className="about-section experience-section">
+        <div>
+          <p className="eyebrow">Past experience</p>
+          <h2>Work in banking technology</h2>
+        </div>
+        <div className="prose">
+          <p>
+            At International Finance Bank, a Miami-based commercial bank, I got
+            an early look at how technology, data, and security support the
+            systems people rely on in financial services.
+          </p>
+          <div className="experience-list">
+            <article>
+              <p className="experience-meta">International Finance Bank · 2024</p>
+              <h3>Cybersecurity Intern</h3>
+              <p>
+                Worked on phishing simulation tests, business impact analysis
+                data, and brand-protection efforts, learning how security work
+                connects technical risk with business continuity.
+              </p>
+            </article>
+            <article>
+              <p className="experience-meta">International Finance Bank · 2023</p>
+              <h3>Software Engineering Intern</h3>
+              <p>
+                Analyzed SQL database structure and built Power BI dashboards,
+                gaining experience with reporting tools, data workflows, and
+                the practical constraints of software inside a bank.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="about-section volunteering-section">
         <div>
           <p className="eyebrow">Giving back</p>
