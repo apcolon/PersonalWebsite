@@ -75,6 +75,24 @@ export const projects: Project[] = [
     technologies: ["React Native", "Django", "PostgreSQL", "Authentication"],
   },
   {
+    slug: "learn-plus-plus",
+    title: "Learn++",
+    role: "Builder",
+    category: "Full Stack",
+    date: "June 2026",
+    description:
+      "A study tool that turns any CS book into a quiz bank you grind against to retain it, with questions generated and grounded in the book's own chapter text.",
+    overview:
+      "Learn++ closes the gap between reading a CS book and actually retaining it. A Go and SQLite backend extracts a chosen chapter's text and prompts Claude to author a question bank grounded in that material, then serves cards through a React frontend. A mastery engine weights each card so weak or unseen questions resurface more often, while a points system rewards first-try and streak performance. The first target book is A Tour of C++.",
+    highlights: [
+      "Generates chapter-grounded question banks with claude-sonnet-4-6 from extracted book text",
+      "Built a mastery engine that reweights cards based on right and wrong answers",
+      "Supports multiple choice, true/false, self-graded recall, and typed free-response questions",
+      "Tracks session and lifetime stats with a streak- and difficulty-scaled points system",
+    ],
+    technologies: ["Go", "SQLite", "React", "Vite", "Claude API"],
+  },
+  {
     slug: "pacos-puppy-problem",
     title: "Paco's Puppy Problem",
     category: "Machine Learning",
