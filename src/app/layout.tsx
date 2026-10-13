@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Archivo, Geist_Mono } from "next/font/google";
+import { ViewTransition } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 const geistMono = Geist_Mono({
@@ -14,16 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export const metadata: Metadata = {
   title: "Antonio Colon | Software Engineer",
   description:
-    "The portfolio of Antonio Colon, a software engineer building thoughtful full-stack and AI products.",
+    "Antonio Colon is a software engineer in Miami. Currently building Rocky, an iPhone app that coaches bouldering.",
 };
 
 export default function RootLayout({
@@ -32,13 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
-    >
+    <html lang="en" data-scroll-behavior="smooth" className={`${archivo.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <SiteHeader />
-        <main>{children}</main>
+        <main>
+          <ViewTransition>{children}</ViewTransition>
+        </main>
         <SiteFooter />
       </body>
     </html>

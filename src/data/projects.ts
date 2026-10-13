@@ -1,5 +1,11 @@
+export type Tape = "red" | "pink" | "blue" | "yellow" | "green" | "purple" | "orange";
+
 export type Project = {
   slug: string;
+  kind: "product" | "study" | "coursework";
+  status: "projecting" | "sent";
+  tape: Tape;
+  year: string;
   title: string;
   role?: string;
   category: string;
@@ -12,12 +18,91 @@ export type Project = {
   liveCta?: string;
   videoUrl?: string;
   videoPoster?: string;
-  featured?: boolean;
+  icon?: string;
+  pipeline?: { step: string; detail: string }[];
+  phases?: { name: string; summary: string; state: "done" | "active" | "planned" }[];
+  notes?: { title: string; body: string }[];
+  images?: { src: string; alt: string; width: number; height: number }[];
 };
 
 export const projects: Project[] = [
   {
+    slug: "rocky",
+    kind: "product",
+    status: "projecting",
+    tape: "red",
+    year: "2026",
+    title: "Rocky",
+    role: "Builder",
+    category: "iOS / Computer Vision",
+    date: "September 2026 - Present",
+    description:
+      "An iPhone app that watches you boulder and tells you how to climb better. It finds the holds on a wall, groups them by route, and tracks your body through a recorded climb.",
+    overview:
+      "Rocky is a climbing coach I'm building for my own sessions, and a way to learn computer vision, backend design, and iOS on one real problem. Today it does two things. Photograph a wall and it boxes every hold and groups them by route colour, with a tap to fix anything it gets wrong. Record a climb and it returns the clip with a skeleton tracked over your body. The part I'm working on now joins the two: working out which hold each hand and foot is on, so a clip becomes a sequence of moves that technique feedback can be built from.",
+    highlights: [
+      "Fine-tuned YOLOv8n on about 1,700 labelled images of holds and volumes, reaching 0.815 mAP50",
+      "Serves the model through ONNX Runtime with hand-written preprocessing and non-max suppression, so the API never loads PyTorch",
+      "Groups holds into routes by clustering hue and saturation, with the number of routes chosen by silhouette score",
+      "Uploads video straight from the phone to Cloudflare R2 with presigned URLs, then tracks pose in a Redis-backed worker",
+      "My first SwiftUI app: camera capture, a hold overlay with tap-to-correct, and skeleton playback",
+    ],
+    technologies: ["Swift", "SwiftUI", "FastAPI", "YOLOv8", "ONNX Runtime", "MediaPipe", "Redis + RQ", "Cloudflare R2"],
+    icon: "/images/rocky/icon.png",
+    images: [
+      {
+        src: "/images/rocky/shot-2.png",
+        alt: "Rocky showing a gym wall with 94 detected holds boxed and grouped into 6 route colours",
+        width: 1206,
+        height: 2622,
+      },
+      {
+        src: "/images/rocky/shot-3.png",
+        alt: "Rocky with the pink route selected: its 17 holds highlighted and ready to correct by tapping",
+        width: 1206,
+        height: 2622,
+      },
+      {
+        src: "/images/rocky/shot-1.png",
+        alt: "Rocky's Analyze screen, with buttons to photograph a wall or choose a photo",
+        width: 1206,
+        height: 2622,
+      },
+    ],
+    pipeline: [
+      { step: "iPhone app", detail: "Takes the wall photo and records the climb." },
+      { step: "FastAPI", detail: "Creates the climb and hands back a short-lived upload URL." },
+      { step: "Cloudflare R2", detail: "The phone uploads the video directly, so the API never touches the bytes." },
+      { step: "Redis queue", detail: "The API enqueues the analysis and answers right away." },
+      { step: "Worker", detail: "Runs hold detection and pose tracking on the clip." },
+      { step: "Back on the phone", detail: "The app polls for the result and draws holds and skeleton over the footage." },
+    ],
+    phases: [
+      { name: "Plumbing", summary: "Record on the phone, upload to storage, get a response from a deployed server.", state: "done" },
+      { name: "Hold detection", summary: "Photograph a wall and see every hold boxed and grouped by route colour.", state: "done" },
+      { name: "Pose tracking", summary: "Upload a clip and play it back with a skeleton over the climber.", state: "done" },
+      { name: "Move segmentation", summary: "Line up holds with joint positions to turn a clip into a list of moves.", state: "active" },
+      { name: "Technique feedback", summary: "Hip distance from the wall, hesitation before a move, foot precision, as notes timed to the clip.", state: "planned" },
+      { name: "Accounts and history", summary: "Sign in, keep every climb, and see how technique changes over time.", state: "planned" },
+      { name: "Grading", summary: "Relative difficulty first: harder or easier than your last few climbs.", state: "planned" },
+    ],
+    notes: [
+      {
+        title: "Colour is not RGB",
+        body: "The first version grouped holds by raw RGB and produced muddy browns and greys, because gym lighting changes how bright each hold looks far more than it changes its hue. Dropping brightness and clustering on hue and saturation alone fixed it: on my test wall it picked six groups, matching the six routes actually set.",
+      },
+      {
+        title: "A detector on a free tier",
+        body: "The server has roughly 512 MB of memory and PyTorch alone uses more than that. I exported the trained model to ONNX and wrote letterboxing, box decoding, and non-max suppression by hand, so the deployed API runs on ONNX Runtime and NumPy with no PyTorch installed.",
+      },
+    ],
+  },
+  {
     slug: "cartwise",
+    kind: "product",
+    status: "sent",
+    tape: "green",
+    year: "2026",
     title: "CartWise",
     role: "Founder",
     category: "Full Stack",
@@ -34,10 +119,13 @@ export const projects: Project[] = [
     technologies: ["Full-stack", "Walmart APIs", "Product matching", "Data modeling"],
     liveUrl: "https://trycartwise.com/home/",
     liveCta: "Check the live product out!",
-    featured: true,
   },
   {
     slug: "modus-ai",
+    kind: "product",
+    status: "sent",
+    tape: "purple",
+    year: "2026",
     title: "Modus AI",
     role: "Builder",
     category: "AI / Machine Learning",
@@ -55,10 +143,13 @@ export const projects: Project[] = [
     technologies: ["LLMs", "RAG", "Retrieval systems", "Oracle Cloud", "Product design"],
     videoUrl: "/videos/modus-ai-demo.mp4",
     videoPoster: "/images/modus-ai-poster.jpg",
-    featured: true,
   },
   {
     slug: "nomad",
+    kind: "product",
+    status: "projecting",
+    tape: "blue",
+    year: "2025",
     title: "NOMAD",
     role: "Co-Founder",
     category: "Mobile App",
@@ -76,6 +167,10 @@ export const projects: Project[] = [
   },
   {
     slug: "learn-plus-plus",
+    kind: "product",
+    status: "sent",
+    tape: "yellow",
+    year: "2026",
     title: "Learn++",
     role: "Builder",
     category: "Full Stack",
@@ -94,6 +189,10 @@ export const projects: Project[] = [
   },
   {
     slug: "pacos-puppy-problem",
+    kind: "study",
+    status: "sent",
+    tape: "pink",
+    year: "2026",
     title: "Paco's Puppy Problem",
     category: "Machine Learning",
     date: "April 2026",
@@ -110,6 +209,10 @@ export const projects: Project[] = [
   },
   {
     slug: "insta485",
+    kind: "coursework",
+    status: "sent",
+    tape: "orange",
+    year: "U-M",
     title: "Insta485",
     category: "Full Stack",
     date: "University of Michigan Course Project",
@@ -127,6 +230,10 @@ export const projects: Project[] = [
   },
   {
     slug: "distributed-mapreduce",
+    kind: "coursework",
+    status: "sent",
+    tape: "blue",
+    year: "U-M",
     title: "Distributed MapReduce",
     category: "Distributed Systems",
     date: "University of Michigan Course Project",
@@ -144,6 +251,10 @@ export const projects: Project[] = [
   },
   {
     slug: "scalable-search-engine",
+    kind: "coursework",
+    status: "sent",
+    tape: "green",
+    year: "U-M",
     title: "Scalable Search Engine",
     category: "Search Systems",
     date: "University of Michigan Course Project",
@@ -161,6 +272,10 @@ export const projects: Project[] = [
   },
   {
     slug: "lc2k-cache-simulator",
+    kind: "coursework",
+    status: "sent",
+    tape: "purple",
+    year: "U-M",
     title: "LC-2K Cache Simulator",
     category: "Computer Architecture",
     date: "University of Michigan Course Project",
@@ -178,6 +293,10 @@ export const projects: Project[] = [
   },
   {
     slug: "sillyql-database-engine",
+    kind: "coursework",
+    status: "sent",
+    tape: "yellow",
+    year: "U-M",
     title: "SillyQL Database Engine",
     category: "Database Systems",
     date: "University of Michigan Course Project",
@@ -195,6 +314,10 @@ export const projects: Project[] = [
   },
   {
     slug: "mine-escape",
+    kind: "coursework",
+    status: "sent",
+    tape: "pink",
+    year: "U-M",
     title: "Mine Escape",
     category: "Algorithms",
     date: "University of Michigan Course Project",
@@ -212,6 +335,10 @@ export const projects: Project[] = [
   },
   {
     slug: "letterman-word-morph",
+    kind: "coursework",
+    status: "sent",
+    tape: "orange",
+    year: "U-M",
     title: "Letterman Word Morph",
     category: "Algorithms",
     date: "University of Michigan Course Project",

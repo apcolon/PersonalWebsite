@@ -1,27 +1,26 @@
-export const metadata = { title: "Resume | Antonio Colon" };
+import { resumeUrl } from "@/lib/contact";
 
-const resumeUrl = "/documents/antonio-colon-resume.pdf";
+export const metadata = { title: "Resume | Antonio Colon" };
 
 export default function ResumePage() {
   return (
-    <section className="page shell">
-      <div className="page-intro resume-intro">
-        <div>
-          <p className="eyebrow">Resume</p>
-          <h1>Experience at a glance.</h1>
-          <p>Computer science, product engineering, applied AI, and cybersecurity.</p>
+    <>
+      <header className="page-header topo">
+        <div className="shell resume-intro">
+          <h1>Resume</h1>
+          <a className="button" href={resumeUrl} download>
+            Download PDF
+          </a>
         </div>
-        <a className="button button-primary" href={resumeUrl} download>
-          Download PDF
-        </a>
+      </header>
+      <div className="shell page-body">
+        <div className="resume-viewer">
+          <iframe src={`${resumeUrl}#view=FitH`} title="Antonio Colon resume" />
+        </div>
+        <p className="resume-fallback">
+          Preview not loading? <a href={resumeUrl}>Open the resume in a new tab.</a>
+        </p>
       </div>
-      <div className="resume-viewer">
-        <iframe src={`${resumeUrl}#view=FitH`} title="Antonio Colon resume" />
-      </div>
-      <p className="resume-fallback">
-        Having trouble with the preview? <a href={resumeUrl}>Open the resume in a new tab.</a>
-      </p>
-    </section>
+    </>
   );
 }
-

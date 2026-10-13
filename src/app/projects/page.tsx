@@ -1,74 +1,54 @@
-import { ProjectCard } from "@/components/project-card";
+import { ProjectRow } from "@/components/project-row";
 import { projects } from "@/data/projects";
 
 export const metadata = { title: "Projects | Antonio Colon" };
 
-const skillGroups = [
+const groups = [
   {
-    title: "Languages & Developer Tools",
-    skills: ["Python", "C++", "C", "TypeScript", "JavaScript", "SQL", "HTML/CSS", "Git"],
+    title: "Projecting",
+    note: "Still working on these.",
+    items: projects.filter((project) => project.status === "projecting"),
   },
   {
-    title: "Web Development",
-    skills: ["React", "React Native", "Next.js", "Flask", "Django", "Jinja", "REST APIs", "Authentication"],
+    title: "Sent",
+    note: "Finished or live.",
+    items: projects.filter((project) => project.status === "sent" && project.kind !== "coursework"),
   },
   {
-    title: "AI & Machine Learning",
-    skills: ["PyTorch", "LLMs", "RAG", "CNNs", "Vision Transformers", "Transfer learning", "Retrieval systems"],
-  },
-  {
-    title: "Data & Infrastructure",
-    skills: ["AWS", "Oracle Cloud", "Docker", "PostgreSQL", "SQLite", "MapReduce", "Inverted indexes", "TF-IDF", "PageRank", "Data modeling"],
-  },
-  {
-    title: "Security & Networking",
-    skills: ["TCP", "UDP", "Wireshark", "Network sockets", "Authentication", "SQL injection", "Cross-site scripting (XSS)", "Buffer overflow attacks", "Fault tolerance"],
-  },
-  {
-    title: "Systems & Algorithms",
-    skills: ["Distributed systems", "Threads", "Computer architecture", "Caching", "LRU", "Hash tables", "Binary search trees", "Priority queues", "BFS", "DFS", "Graph traversal", "Query processing"],
+    title: "Coursework",
+    note: "Systems and algorithms projects from the University of Michigan.",
+    items: projects.filter((project) => project.kind === "coursework"),
   },
 ];
 
 export default function ProjectsPage() {
   return (
-    <section className="page shell">
-      <div className="page-intro">
-        <p className="eyebrow">Projects</p>
-        <h1>Selected things I&apos;ve built.</h1>
-        <p>
-          A growing collection of products, experiments, and technical
-          problems I&apos;ve enjoyed working through.
-        </p>
-      </div>
-      <div className="project-grid">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
-      </div>
-
-      <section className="skills-section" aria-labelledby="skills-heading">
-        <div className="skills-heading">
-          <p className="eyebrow">Across my work</p>
-          <h2 id="skills-heading">Skills learned</h2>
+    <>
+      <header className="page-header topo">
+        <div className="shell">
+          <h1>Projects</h1>
           <p>
-            Technologies, algorithms, and engineering concepts I&apos;ve practiced
-            while building these projects.
+            Everything I&apos;ve built that I&apos;d show someone, from the
+            app I&apos;m working on this week back to the coursework that
+            taught me how systems fit together.
           </p>
         </div>
-        <div className="skills-groups">
-          {skillGroups.map((group) => (
-            <section className="skill-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <ul className="skills-list">
-                {group.skills.map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-      </section>
-    </section>
+      </header>
+      <div className="shell page-body">
+        {groups.map((group) => (
+          <section className="project-group" key={group.title} aria-labelledby={`group-${group.title}`}>
+            <div className="project-group-heading">
+              <h2 id={`group-${group.title}`}>{group.title}</h2>
+              <p>{group.note}</p>
+            </div>
+            <ul className="project-list">
+              {group.items.map((project, index) => (
+                <ProjectRow key={project.slug} project={project} index={index} />
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </>
   );
 }

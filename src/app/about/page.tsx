@@ -1,138 +1,137 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = { title: "About | Antonio Colon" };
 
+const books = [
+  {
+    title: "Stoner",
+    author: "John Williams",
+    note: "A quiet, deeply human story about an ordinary life shaped by work, love, and disappointment.",
+  },
+  {
+    title: "The Stranger",
+    author: "Albert Camus",
+    note: "A short, unsettling novel that asks how we create meaning in an indifferent world.",
+  },
+  {
+    title: "City of Thieves",
+    author: "David Benioff",
+    note: "A darkly funny adventure about friendship and survival during the siege of Leningrad.",
+  },
+];
+
 export default function AboutPage() {
   return (
-    <section className="page shell">
-      <div className="page-intro">
-        <p className="eyebrow">About me</p>
-        <h1>Puerto Rico roots. Miami home. Learning as I go.</h1>
-      </div>
-      <div className="about-layout">
-        <div className="portrait-frame">
-          <Image
-            src="/images/antonio-graduation.jpg"
-            alt="Antonio Colon in University of Michigan graduation regalia"
-            width={1200}
-            height={1800}
-            sizes="(max-width: 700px) 100vw, 40vw"
-            priority
-          />
+    <>
+      <header className="page-header topo">
+        <div className="shell">
+          <h1>Born in Puerto Rico, based in Miami.</h1>
         </div>
-        <div className="prose">
-          <h2>Hey, I&apos;m Antonio.</h2>
-          <p>
-            I was born in Puerto Rico and now live in Miami. I&apos;m a University
-            of Michigan computer science graduate with a minor in mathematics,
-            and I enjoy turning ideas into products people can actually use.
-            I&apos;m especially interested in the intersection of technology and
-            finance, along with my growing interest in machine learning.
-          </p>
-          <p>
-            Projects like CartWise and Modus AI have given me room to work
-            across the stack, make product decisions, and learn what it takes
-            to move from an early concept to working software.
-          </p>
-          <p>
-            In my free time, I enjoy going to the gym, rock climbing, going on
-            runs, and reading. I like having interests that pull me away from a
-            screen and give me something different to work toward.
-          </p>
-          <p>
-            One of my favorite challenges was completing the Camino de
-            Santiago, walking 150 miles in 10 days from Porto, Portugal, to
-            Santiago de Compostela, Spain.
-          </p>
-          <div className="facts-grid">
-            <div><span>Based in</span><strong>Miami, FL</strong></div>
-            <div><span>Born in</span><strong>Puerto Rico</strong></div>
-            <div><span>Education</span><strong>University of Michigan</strong></div>
-            <div><span>Interests</span><strong>Tech, finance + ML</strong></div>
+      </header>
+      <div className="shell page-body">
+        <div className="about-layout">
+          <div className="photo-frame">
+            <Image
+              src="/images/antonio-graduation.jpg"
+              alt="Antonio Colon in University of Michigan graduation regalia"
+              width={1200}
+              height={1800}
+              sizes="(max-width: 700px) 100vw, 36vw"
+              priority
+            />
+          </div>
+          <div className="prose">
+            <p>
+              I&apos;m Antonio. I was born in Puerto Rico, live in Miami, and
+              studied computer science at the University of Michigan with a
+              minor in mathematics.
+            </p>
+            <p>
+              I like taking an idea all the way to something people can use.{" "}
+              <Link href="/projects/cartwise">CartWise</Link> turns a recipe
+              into a Walmart cart. <Link href="/projects/modus-ai">Modus AI</Link>{" "}
+              answers questions from a course&apos;s own lectures.{" "}
+              <Link href="/projects/rocky">Rocky</Link>, the one I&apos;m on
+              now, is an iPhone app that coaches bouldering, and it&apos;s as
+              much a way to learn computer vision and iOS as it is a climbing
+              tool.
+            </p>
+            <p>
+              I&apos;m interested in where technology meets finance, and lately
+              in machine learning.
+            </p>
+            <p>
+              Away from the screen I climb, lift, run, and read. One of my
+              favorite challenges was the Camino de Santiago: 150 miles on foot
+              in 10 days, from Porto, Portugal, to Santiago de Compostela,
+              Spain.
+            </p>
+            <dl className="facts">
+              <div><dt>Based in</dt><dd>Miami, FL</dd></div>
+              <div><dt>Born in</dt><dd>Puerto Rico</dd></div>
+              <div><dt>Education</dt><dd>University of Michigan</dd></div>
+              <div><dt>Interests</dt><dd>Tech, finance, ML</dd></div>
+            </dl>
           </div>
         </div>
-      </div>
 
-      <section className="about-section experience-section">
-        <div>
-          <p className="eyebrow">Past experience</p>
+        <section className="split-section">
           <h2>Work in banking technology</h2>
-        </div>
-        <div className="prose">
-          <p>
-            At International Finance Bank, a Miami-based commercial bank, I got
-            an early look at how technology, data, and security support the
-            systems people rely on in financial services.
-          </p>
-          <div className="experience-list">
-            <article>
-              <p className="experience-meta">International Finance Bank · 2024</p>
+          <div className="prose">
+            <p>
+              Two internships at International Finance Bank, a commercial bank in
+              Miami, showed me how software, data, and security hold up the
+              systems people rely on in financial services.
+            </p>
+            <div className="experience">
               <h3>Cybersecurity Intern</h3>
+              <p className="experience-meta">International Finance Bank · 2024</p>
               <p>
-                Worked on phishing simulation tests, business impact analysis
-                data, and brand-protection efforts, learning how security work
-                connects technical risk with business continuity.
+                Ran phishing simulation tests, worked with business impact
+                analysis data, and supported brand-protection efforts.
               </p>
-            </article>
-            <article>
-              <p className="experience-meta">International Finance Bank · 2023</p>
+            </div>
+            <div className="experience">
               <h3>Software Engineering Intern</h3>
+              <p className="experience-meta">International Finance Bank · 2023</p>
               <p>
-                Analyzed SQL database structure and built Power BI dashboards,
-                gaining experience with reporting tools, data workflows, and
-                the practical constraints of software inside a bank.
+                Analyzed SQL database structure and built Power BI dashboards
+                for reporting.
               </p>
-            </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-section volunteering-section">
-        <div>
-          <p className="eyebrow">Giving back</p>
+        <section className="split-section">
           <h2>Community work</h2>
-        </div>
-        <div className="prose">
-          <p>
-            I&apos;ve volunteered with Feed My Starving Children, helping pack
-            meals for communities facing food insecurity. I&apos;ve also organized
-            neighborhood donation drives because small, local efforts can still
-            put useful things into the hands of people who need them.
-          </p>
-          <ul className="community-list">
-            <li>Collected books for donation to local libraries.</li>
-            <li>Collected clothing for a local homeless shelter.</li>
-            <li>Collected baby and children&apos;s clothes and toys for shelters and hospitals.</li>
-          </ul>
-        </div>
-      </section>
+          <div className="prose">
+            <p>
+              I&apos;ve packed meals with Feed My Starving Children for
+              communities facing food insecurity, and organized donation
+              drives in my neighborhood:
+            </p>
+            <ul className="plain-list">
+              <li>Books for local libraries.</li>
+              <li>Clothing for a local homeless shelter.</li>
+              <li>Baby and children&apos;s clothes and toys for shelters and hospitals.</li>
+            </ul>
+          </div>
+        </section>
 
-      <section className="about-section reading-section">
-        <div>
-          <p className="eyebrow">Off the clock</p>
-          <h2>A few books I&apos;ve enjoyed and recommend</h2>
-        </div>
-        <div className="book-grid">
-          <article>
-            <p className="book-number">01</p>
-            <h3><cite>Stoner</cite></h3>
-            <p className="book-author">John Williams</p>
-            <p>A quiet, deeply human story about an ordinary life shaped by work, love, and disappointment.</p>
-          </article>
-          <article>
-            <p className="book-number">02</p>
-            <h3><cite>The Stranger</cite></h3>
-            <p className="book-author">Albert Camus</p>
-            <p>A short, unsettling novel that asks how we create meaning in an indifferent world.</p>
-          </article>
-          <article>
-            <p className="book-number">03</p>
-            <h3><cite>City of Thieves</cite></h3>
-            <p className="book-author">David Benioff</p>
-            <p>A darkly funny adventure about friendship and survival during the siege of Leningrad.</p>
-          </article>
-        </div>
-      </section>
-    </section>
+        <section className="split-section">
+          <h2>Three books I recommend</h2>
+          <ul className="book-list">
+            {books.map((book) => (
+              <li key={book.title}>
+                <h3><cite>{book.title}</cite></h3>
+                <p className="experience-meta">{book.author}</p>
+                <p>{book.note}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </>
   );
 }
